@@ -1,0 +1,17 @@
+.title-container {
+    display: flex;
+    margin-top: 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-title {
+    color: var(--primary);
+    text-align: center;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 6.4px;
+}

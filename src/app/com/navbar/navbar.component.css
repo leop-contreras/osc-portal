@@ -1,0 +1,65 @@
+.portal-osc {
+    position: relative;
+}
+.contactanos {
+    width: 9rem;
+    font-weight: 600;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 250ms;
+}
+.contactanos:hover {
+    font-weight: 700;
+}
+.right-side-line {
+    width: 0.125rem;
+    position: relative;
+    border-right: 2px solid var(--color-white);
+    box-sizing: border-box;
+    height: 3rem;
+}
+.icons8-person-641-1 {
+    width: 2.5rem;
+    position: relative;
+    height: 2.5rem;
+    object-fit: cover;
+}
+.right-side {
+    align-self: stretch;
+    width: 43.656rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: var(--font-khula);
+}
+.navbar {
+    width: 100%;
+    position: relative;
+    background-color: var(--primary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 3.125rem;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 2rem;
+    color: var(--color-white);
+}
+.admin-icon{
+    transition: all 250ms;
+}
+
+.admin-icon:hover{
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+}
+

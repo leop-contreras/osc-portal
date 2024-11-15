@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    line-height: normal;
+    font-family: "Josefin Sans";
+}
+
+a {
+    color:inherit;
+    text-decoration: none; /* no underline */
+  }
+
+
+:root {
+    
+    /* Colors */
+    --primary: #02b647;
+    --primary-dark: #007e30;
+    --color-white: #fff;
+    --secondary: #A3F0C1;
+    --secondary-dark: #7fce9d;
+    --accent: #04BADA;
+    --accent-dark: #0596af; 
+    
+}
