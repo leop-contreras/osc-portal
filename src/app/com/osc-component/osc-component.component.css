@@ -1,18 +1,19 @@
 .osc-container {
     display: flex;
-    width: 25rem;
-    height: 10rem;
+    width: 32rem;
+    height: 14rem;
     padding: 0.9375rem;
     align-items: center;
     gap: 0.9375rem;
     background: #FFF;
     box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.25);
     transition: all 250ms;
+    animation: fadeIn 500ms ease-out;
 }
 
 .image-container {
     display: flex;
-    width: calc(9rem);
+    width: calc(12rem);
     aspect-ratio: 1/1;
     padding: 0.9375rem;
     justify-content: center;
@@ -27,7 +28,7 @@
     flex: 1 0 0;
     align-self: stretch;
     border-radius: 0.625rem;
-    background: url("C:\\Users\\leona\\Downloads\\osc.jpg") lightgray 50% / cover no-repeat;
+    background: cover no-repeat;
 }
 
 .text-container {
@@ -36,6 +37,7 @@
     align-items: flex-start;
     gap: 0.9375rem;
     flex: 1 0 0;
+    overflow: hidden;
     align-self: stretch;
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent);
     mask-image: linear-gradient(to bottom, black 85%, transparent);
@@ -43,7 +45,7 @@
 
 .osc-name {
     color: #000;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -54,7 +56,7 @@
 
 .osc-description {
     flex: 1 0 0;
-    max-width: 13rem;
+    max-width: calc(32rem);
     align-self: stretch;
     overflow: hidden;
     color: #000;
@@ -74,14 +76,14 @@
     gap: 0.625rem;
     overflow: hidden; 
     white-space: nowrap;
-    max-width: 13.25rem;
-    -webkit-mask-image: linear-gradient(to right, black 90%, transparent);
-    mask-image: linear-gradient(to right, black 90%, transparent);
+    max-width: calc(32rem);
+    /*-webkit-mask-image: linear-gradient(to right, black 90%, transparent);
+    mask-image: linear-gradient(to right, black 90%, transparent);*/
 }
 
 .category-component {
     display: inline-flex;
-    height: 1.2rem;
+    height: 1.3rem;
     padding: 0.375rem 0.5rem;
     justify-content: center;
     align-items: center;
@@ -93,7 +95,7 @@
 .category-text {
     color: #FFF;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1rem;
@@ -106,4 +108,14 @@
     box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.6);
 }
 
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component,Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-osc-component',
@@ -7,5 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './osc-component.component.css'
 })
 export class OscComponentComponent {
+  @Input() name: string = 'OSC NAME';
+  @Input() imgSrc: string = '';
+  @Input() category: string = '';
 
+  @Output() clicked = new EventEmitter<void>();
+
+  onClick(): void {
+    this.clicked.emit();
+  }
 }

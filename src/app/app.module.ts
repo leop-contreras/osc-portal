@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './com/navbar/navbar.component';
 import { ContactoComponent } from './com/contacto/contacto.component';
 import { ProjectsComponent } from './com/projects/projects.component';
+import { OscModalComponent } from "./com/osc-modal/osc-modal.component";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ProjectsComponent } from './com/projects/projects.component';
     ContactoComponent,
     ProjectsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CommonModule],
+  imports: [BrowserModule, AppRoutingModule, CommonModule, OscModalComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

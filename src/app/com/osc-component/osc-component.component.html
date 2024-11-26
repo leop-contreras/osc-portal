@@ -1,28 +1,18 @@
-<div class="osc-container">
+<div class="osc-container" (click)="onClick()">
     <div class="image-container">
-        <img class="osc-logo">
+        <img class="osc-logo" [src]="imgSrc">
     </div>
     <div class="text-container">
-        <b class="osc-name">
-            Sociedad Civil X
-        </b>
+        <b class="osc-name">{{ name }}</b>
         <div class="category-container">
             <div class="category-component">
-                <span class="category-text">Sports</span>
-            </div>
-            <div class="category-component">
-                <span class="category-text">Entertainment</span>
-            </div>
-            <div class="category-component">
-                <span class="category-text">Griffindor</span>
-            </div>
-            <div class="category-component">
-                <span class="category-text">Ravenclaw</span>
+                <span class="category-text">{{category}}</span>
             </div>
         </div>
         
         <span class="osc-description">
-            Where it's covered in all the colored lights Where the runaways are runnin' the night Impossible comes true, intoxicatin' you Oh, this is the greatest show we light it up, we won't come down and the sun can't stop us now watchin' it come true, it's takin' over youOh, this is the greatest show
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at  convallis metus, et semper justo. Quisque eget venenatis turpis. Nullam  quis mauris faucibus, lobortis mauris in, posuere lorem. Integer et ex  sit amet elit bibendum varius in a mauris. Donec gravida erat laoreet ex imperdiet lobortis. Nunc cursus orci odio, sit amet semper odio laoreet sit amet. Donec imperdiet aliquam erat semper viverra. Donec vitae  condimentum nisi, auctor pulvinar nisl. Nulla eget rutrum mauris. Fusce  viverra rhoncus tellus, a sollicitudin neque aliquet sed. Aliquam sed  orci vel risus facilisis pharetra. Curabitur at ex bibendum elit  fringilla interdum. Suspendisse finibus risus vitae metus varius mattis. Vestibulum interdum auctor enim nec ultricies. Duis elit enim, interdum ut dolor quis, rutrum fermentum lorem.
+            Ut tristique sodales est, nec ullamcorper turpis auctor in. Donec  feugiat, leo porttitor condimentum pharetra, mauris risus suscipit  lectus, sit amet vestibulum nibh nulla viverra mi. Praesent dictum  hendrerit nisl vitae semper. Nullam bibendum in elit vitae congue. Nulla ornare leo in nibh placerat, nec hendrerit magna lacinia. Sed leo  ipsum, varius ut finibus id, volutpat nec urna. In gravida leo massa, at commodo sapien semper sit amet. Morbi dictum blandit rutrum. Curabitur  augue justo, porttitor nec aliquam sed, fermentum eu nunc. Suspendisse  scelerisque mi sit amet consectetur imperdiet.   
         </span>
     </div>
 </div>

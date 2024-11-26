@@ -1,0 +1,35 @@
+<div class="modal-overlay" *ngIf="isVisible" (click)="closeModal()"></div>
+<div class="modal" *ngIf="isVisible">
+    <div class="escape-container">
+        <button (click)="closeModal()">X</button>
+    </div>
+    <div class="modal-header">
+        <div class="header-container">
+            <div class="image-container">
+                <img [src]="imgSrc">
+            </div>
+            <div class="header-text-container">
+                <span class="osc-name">{{name}}</span>
+                <div class="category-container">
+                    <div class="category-component">
+                        <span class="category-text">{{category}}</span>
+                    </div>
+                </div>
+                <span class="osc-desc osc-date">Fecha de fundación: {{date}}</span>
+                <span class="osc-desc osc-place">Localizacion: {{place}}</span>
+                <button class="contact-button">
+                    <span>CONTACTAR</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="text-container">
+            <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at  convallis metus, et semper justo. Quisque eget venenatis turpis. Nullam  quis mauris faucibus, lobortis mauris in, posuere lorem. Integer et ex  sit amet elit bibendum varius in a mauris. Donec gravida erat laoreet ex imperdiet lobortis. Nunc cursus orci odio, sit amet semper odio laoreet sit amet. Donec imperdiet aliquam erat semper viverra. Donec vitae  condimentum nisi, auctor pulvinar nisl. Nulla eget rutrum mauris. Fusce  viverra rhoncus tellus, a sollicitudin neque aliquet sed. Aliquam sed  orci vel risus facilisis pharetra. Curabitur at ex bibendum elit  fringilla interdum. Suspendisse finibus risus vitae metus varius mattis. Vestibulum interdum auctor enim nec ultricies. Duis elit enim, interdum ut dolor quis, rutrum fermentum lorem.
+                Ut tristique sodales est, nec ullamcorper turpis auctor in. Donec  feugiat, leo porttitor condimentum pharetra, mauris risus suscipit  lectus, sit amet vestibulum nibh nulla viverra mi. Praesent dictum  hendrerit nisl vitae semper. Nullam bibendum in elit vitae congue. Nulla ornare leo in nibh placerat, nec hendrerit magna lacinia. Sed leo  ipsum, varius ut finibus id, volutpat nec urna. In gravida leo massa, at commodo sapien semper sit amet. Morbi dictum blandit rutrum. Curabitur  augue justo, porttitor nec aliquam sed, fermentum eu nunc. Suspendisse  scelerisque mi sit amet consectetur imperdiet.
+                Proin varius neque in aliquet tempor. Sed non rutrum est, vel posuere  risus. Orci varius natoque penatibus et magnis dis parturient montes,  nascetur ridiculus mus. Sed quis orci tincidunt, rutrum quam non,  convallis lacus. Integer vestibulum justo ac congue rutrum. Aliquam quis nunc ultricies, consequat dolor vitae, facilisis sapien. Nulla  facilisi. Nam suscipit malesuada odio, eu porta odio lobortis ut.
+                Fusce malesuada sapien sit amet lectus feugiat posuere. Nam augue est,  condimentum a lectus laoreet, accumsan iaculis eros. Nulla non orci  hendrerit, suscipit ante vitae, eleifend lacus. Suspendisse ornare ante  vel lorem molestie malesuada. Cras ut mi in nibh volutpat ornare nec a  ligula. Duis finibus nisi a condimentum sollicitudin. Nullam in egestas  lacus. Curabitur posuere nibh egestas ipsum lobortis aliquam. Nam  convallis magna lectus, at fringilla leo pharetra sed. Aenean feugiat  lacus ut augue ullamcorper, sed venenatis tellus sagittis. Ut non enim  sed quam tristique vulputate. Pellentesque iaculis nec dui nec congue.  Ut sollicitudin mauris ante, ac dictum lorem efficitur sed.
+                Nam tortor magna, posuere a tincidunt nec, efficitur vitae orci. Nullam  tempor elit id pretium condimentum. Praesent tincidunt, erat ac  sollicitudin luctus, massa sapien tincidunt dui, quis accumsan metus  tortor quis eros. Pellentesque est tellus, pulvinar a elit eget,  faucibus sollicitudin erat. Aliquam dignissim laoreet ex, in congue odio vulputate pharetra. Donec eget quam sit amet metus molestie dapibus.  Nullam sollicitudin justo sed dictum aliquet. Donec velit ligula, tempus et dignissim in, condimentum eget neque. Aliquam tincidunt, eros id  pulvinar convallis, neque velit aliquam lorem, quis sagittis quam diam  at libero. Nam efficitur mattis lorem ut bibendum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ac metus vitae felis posuere gravida non in nulla. In hac  habitasse platea dictumst. Nulla aliquet sed dolor fermentum mollis.  Fusce condimentum risus odio, vitae mattis magna congue nec.</span>
+        </div>
+    </div>
+</div>
