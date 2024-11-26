@@ -10,6 +10,8 @@ export class OscComponentComponent {
   @Input() name: string = 'OSC NAME';
   @Input() imgSrc: string = '';
   @Input() category: string = '';
+  @Input() desc: string = '';
+  @Input() id: string = '';
 
   @Output() clicked = new EventEmitter<void>();
 

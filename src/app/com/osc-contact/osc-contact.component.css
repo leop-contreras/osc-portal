@@ -1,0 +1,81 @@
+.modal-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.25);
+    height: calc(55vh);
+    width: calc(20vw);
+    overflow-y: auto;
+    display: flex;
+    padding: 0.1rem;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 250ms ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+.text-container{
+    display: flex;
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1 0 0;
+    align-self: stretch;
+    width: 100%;
+}
+
+.field-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex: 1 0 0;
+    align-self: stretch;
+    width: 100%;
+}
+
+.osc-desc{
+    width: 90%;
+    color: #000;
+    font-size: 1.4rem;
+    font-style: normal;
+    line-height: normal;
+    word-wrap: break-word;
+    white-space: normal; 
+}
+
+.desc-bold{
+    width: 90%;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: normal;
+    line-height: normal;
+    word-wrap: break-word;
+    white-space: normal; 
+}
+
+.escape-container{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    align-self: stretch;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

@@ -196,3 +196,18 @@
 .search-icon:hover{
     background: var(--primary-dark);
 }
+
+.modal-container {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 1000; 
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.5);
+}

@@ -8,6 +8,7 @@ import { NavbarComponent } from './com/navbar/navbar.component';
 import { ContactoComponent } from './com/contacto/contacto.component';
 import { ProjectsComponent } from './com/projects/projects.component';
 import { OscModalComponent } from "./com/osc-modal/osc-modal.component";
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { OscModalComponent } from "./com/osc-modal/osc-modal.component";
     ProjectsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, CommonModule, OscModalComponent],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

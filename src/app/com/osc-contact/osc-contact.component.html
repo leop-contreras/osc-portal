@@ -1,0 +1,19 @@
+<div class="modal-container" *ngIf="isVisible">
+    <div class="escape-container">
+        <button (click)="closeModal()">X</button>
+    </div>
+    <div class="text-container">
+        <div class="field-container">
+            <span class="osc-desc desc-bold">Nombre:</span>
+            <span class="osc-desc osc-contact-name">{{name}}</span>
+        </div>
+        <div class="field-container">
+            <span class="osc-desc desc-bold">Teléfono:</span>
+            <span class="osc-desc osc-contact-phone">{{phone}}</span>
+        </div>
+        <div class="field-container">
+            <span class="osc-desc desc-bold">Correo:</span>
+            <span class="osc-desc osc-contact-email">{{email}}</span>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,7 @@
 body {
     margin: 0;
     line-height: normal;
-    font-family: "Josefin Sans";
+    font-family: "Josefin Sans", sans-serif;
 }
 
 a {
