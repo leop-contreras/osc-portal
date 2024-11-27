@@ -1,1 +1,138 @@
-<p>admin works!</p>
+<section class="text-center text-lg-start">
+    <style>
+      .cascading-right {
+        margin-right: -50px;
+      }
+  
+      @media (max-width: 991.98px) {
+        .cascading-right {
+          margin-right: 0;
+        }
+      }
+  
+      .form-outline {
+        margin-bottom: 20px;
+      }
+  
+      .background-image {
+        background-image: url('/osc-logo/osc-default.webp');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Full viewport height */
+        position: relative;
+      }
+  
+      .card-container {
+        position: relative;
+        z-index: 1;
+      }
+  
+      .card-body {
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+  
+      .login-box {
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+      }
+  
+      .login-box h4 {
+        margin-bottom: 20px;
+      }
+  
+      .login-box .form-outline {
+        margin-bottom: 15px;
+      }
+    </style>
+  
+    <div class="container py-4">
+      <div class="row g-0 align-items-center">
+        <!-- Formulario de registro -->
+        <div class="col-lg-6 mb-5 mb-lg-0 card-container">
+          <div class="card cascading-right bg-body-tertiary">
+            <div class="card-body p-5 shadow-5 text-center">
+              <h2 class="fw-bold mb-5">Regístrate ahora</h2>
+              <form id="registerForm">
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input type="text" id="form3Example1" class="form-control" />
+                      <label class="form-label" for="form3Example1">Nombre</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input type="text" id="form3Example2" class="form-control" />
+                      <label class="form-label" for="form3Example2">Apellido</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="email" id="form3Example3" class="form-control" />
+                  <label class="form-label" for="form3Example3">Correo electrónico</label>
+                </div>
+  
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="password" id="form3Example4" class="form-control" />
+                  <label class="form-label" for="form3Example4">Contraseña</label>
+                </div>
+                <div class="form-check d-flex justify-content-center mb-4">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                  <label class="form-check-label" for="form2Example33">
+                    Suscríbete para recibir actualizaciones sobre nuestras OSC
+                  </label>
+                </div>
+  
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+                  Regístrate
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Formulario de inicio de sesión -->
+        <div class="col-lg-6 mb-5 mb-lg-0 card-container">
+          <div class="login-box">
+            <h4>Iniciar sesión</h4>
+            <form id="loginForm">
+              <div class="form-outline mb-4">
+                <input type="text" id="loginUsername" class="form-control" />
+                <label class="form-label" for="loginUsername">Nombre de usuario</label>
+              </div>
+  
+              <div class="form-outline mb-4">
+                <input type="password" id="loginPassword" class="form-control" />
+                <label class="form-label" for="loginPassword">Contraseña</label>
+              </div>
+  
+              <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar sesión</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Función para redirigir al usuario a /tableOSC después de registrar o iniciar sesión
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevenir el comportamiento por defecto (enviar formulario)
+      window.location.href = '/tableOSC';  // Redirigir a /tableOSC
+    });
+  
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevenir el comportamiento por defecto (enviar formulario)
+      window.location.href = '/tableOSC';  // Redirigir a /tableOSC
+    });
+  </script>
+  

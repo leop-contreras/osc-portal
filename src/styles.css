@@ -24,3 +24,48 @@ a {
     --accent-dark: #0596af; 
     
 }
+
+/* Alineación de las tarjetas de Login y Registro */
+.login-container {
+    display: flex;  /* Usamos Flexbox para alinearlos horizontalmente */
+    justify-content: space-between;  /* Separación igual entre ambos bloques */
+    gap: 50px; /* Espacio entre ambos bloques */
+  }
+  
+  /* Personalización de las tarjetas */
+  .card {
+    max-width: 450px; /* Limitar el tamaño máximo de cada tarjeta */
+  }
+  
+  .card-body {
+    padding: 30px; /* Espaciado dentro de las tarjetas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de las tarjetas */
+  }
+  
+  .card-body h2 {
+    font-size: 1.8rem; /* Tamaño más grande para el título */
+    margin-bottom: 30px; /* Separación del título con el formulario */
+  }
+  
+  /* Para los inputs y labels */
+  .form-outline {
+    margin-bottom: 30px; /* Aumentar la distancia entre el cuadro de entrada y el texto */
+  }
+  
+  .form-outline input,
+  .form-outline label {
+    margin-bottom: 10px; /* Separación entre el input y el label */
+  }
+  
+  /* Ajuste de la tarjeta de "Iniciar sesión" */
+  .login-card {
+    max-width: 350px; /* Reducir el tamaño de la tarjeta de Iniciar sesión */
+  }
+  
+  @media (max-width: 991.98px) {
+    /* Cuando la pantalla sea pequeña (dispositivos móviles), cambiar la disposición */
+    .login-container {
+      flex-direction: column; /* Apilar los bloques verticalmente */
+    }
+  }
+  

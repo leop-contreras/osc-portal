@@ -1,8 +1,52 @@
 <div class="content">
-    <div class="title-container">
-        <span class="contact-title">CONTACTANOS</span>
+    <div class="title-container text-center mb-4">
+        <span class="contact-title display-4 fw-bold">CONTACTANOS</span>
     </div>
-    <div>
 
+    <!-- Mensaje Explicativo -->
+    <div class="text-center mb-5">
+        <p class="lead">Si deseas obtener más información sobre alguna organización o proyecto, deja tus datos y ¡Nos pondremos en contacto contigo!</p>
+    </div>
+
+    <div class="container">
+        <form>
+            <div class="row">
+                <!-- Nombre -->
+                <div class="col-md-6 mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control is-valid" id="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <!-- Correo -->
+                <div class="col-md-6 mb-3">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" class="form-control is-valid" id="correo" placeholder="Tu correo electrónico" required>
+                </div>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea class="form-control is-valid" id="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+                </div>
+            </div>
+
+            <!-- Aceptación de términos -->
+            <div class="form-group">
+                <div class="form-check mb-4">
+                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                    <label class="form-check-label" for="invalidCheck3">
+                        Acepto los términos y condiciones
+                    </label>
+                    <div class="invalid-feedback">
+                        Debes aceptar los términos antes de enviar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón de Enviar -->
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        </form>
     </div>
 </div>

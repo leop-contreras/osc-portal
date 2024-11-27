@@ -1,0 +1,64 @@
+<div class="content">
+    <div class="title-container text-center mb-4">
+        <span class="contact-title display-4 fw-bold">Añadir una OSC</span>
+    </div>
+
+    <!-- Formulario para agregar OSC en un contenedor bonito -->
+    <div class="form-container border p-4 rounded shadow-sm">
+        <form enctype="multipart/form-data">
+            <div class="form-outline mb-4">
+                <label for="id" class="form-label">ID de la OSC</label>
+                <input type="text" id="id" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="nombre" class="form-label">Nombre de la OSC</label>
+                <input type="text" id="nombre" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea id="descripcion" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="id_categoria" class="form-label">Categoría</label>
+                <input type="number" id="id_categoria" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="fundacion" class="form-label">Fecha de Fundación</label>
+                <input type="date" id="fundacion" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" id="direccion" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" id="estado" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" id="email" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="id_intervencion" class="form-label">ID de Intervención</label>
+                <input type="number" id="id_intervencion" class="form-control" min="1" max="3" required />
+            </div>
+
+            <!-- Campo para subir una imagen de la OSC -->
+            <div class="form-outline mb-4">
+                <label for="imagen" class="form-label">Imagen de la OSC</label>
+                <input type="file" id="imagen" class="form-control" />
+            </div>
+
+            <!-- Botón para añadir la OSC -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Añadir OSC</button>
+        </form>
+    </div>
+</div>
