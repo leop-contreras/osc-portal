@@ -266,6 +266,7 @@ button {
     align-self: stretch;
     border-radius: 0.625rem;
     background: cover no-repeat;
+    width: 100%;
 }
 
 .proyect-name{
