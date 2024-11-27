@@ -9,6 +9,8 @@ import { ContactoComponent } from './com/contacto/contacto.component';
 import { ProjectsComponent } from './com/projects/projects.component';
 import { OscModalComponent } from "./com/osc-modal/osc-modal.component";
 import { provideHttpClient } from '@angular/common/http';
+import { CreateOSCComponent } from './com/create-osc/create-osc.component';
+import { TableOSCComponent } from './com/table-osc/table-osc.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { provideHttpClient } from '@angular/common/http';
     NavbarComponent,
     ContactoComponent,
     ProjectsComponent,
+    CreateOSCComponent,
+    TableOSCComponent
   ],
   imports: [BrowserModule, AppRoutingModule, CommonModule, OscModalComponent],
   providers: [provideHttpClient()],
