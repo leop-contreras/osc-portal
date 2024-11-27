@@ -28,12 +28,21 @@ export class LandingComponent implements AfterViewInit {
   osclist: any = [];
   proyects: any 
   contactOpened: boolean = false;
-  query: string = 'SELECT osc.id, osc.nombre AS nombre, descripcion, categorias.nombre AS categoria FROM `osc` LEFT JOIN `categorias` ON osc.id_categoria = categorias.id;';
+  query: string = `
+      SELECT 
+        osc.id, osc.nombre AS nombre, osc.descripcion, categorias.nombre AS categoria
+      FROM 
+        osc
+      LEFT JOIN 
+        categorias ON osc.id_categoria = categorias.id
+      WHERE 
+    `;
 
   @ViewChild('oscBigContainer', { read: ViewContainerRef, static: true })
   oscBigContainer!: ViewContainerRef;
   @ViewChild('modalContainer', { read: ViewContainerRef, static: true })
   modalContainer!: ViewContainerRef;
+  @ViewChild('searchInput') searchInput!: ElementRef;
 
   constructor(
     private applicationRef: ApplicationRef,
@@ -81,16 +90,32 @@ export class LandingComponent implements AfterViewInit {
     console.log(this.years);
   }
 
-  fetchFilteredOscList(): void {
-    let query = `
-      SELECT 
-        osc.id, osc.nombre AS nombre, osc.descripcion, categorias.nombre AS categoria
-      FROM 
-        osc
-      LEFT JOIN 
-        categorias ON osc.id_categoria = categorias.id
-      WHERE 
+  search(value:string): void{
+    this.filterClear();
+    let searchQuery = `SELECT 
+      osc.id, osc.nombre AS nombre, osc.descripcion, categorias.nombre AS categoria
+    FROM 
+      osc
+    LEFT JOIN 
+      categorias ON osc.id_categoria = categorias.id
+    WHERE osc.nombre LIKE '%${value}%' 
+    OR categorias.nombre LIKE '%${value}%'
     `;
+    let r = this.sql.query(searchQuery, 'select');
+    this.osclist = r.length > 0 ? r : [];
+    console.log(this.osclist);
+    this.addOscComponents(); 
+  }
+
+  searchClear():void{
+    if (this.searchInput) {
+      this.searchInput.nativeElement.value = '';
+    }
+    this.search('');
+  }
+
+  fetchFilteredOscList(): void {
+    let query = this.query;
 
     const conditions: string[] = [];
 
@@ -120,6 +145,26 @@ export class LandingComponent implements AfterViewInit {
 
   onFilterChange(): void {
     this.fetchFilteredOscList(); 
+  }
+
+  filterClear(filter?:any): void{
+    switch(filter){
+      case "Country":
+        this.selectedCountry = "";
+        break;
+      case "Category":
+        this.selectedCategory = "";
+        break;
+      case "Year":
+        this.selectedYear = "";
+        break;
+      default:
+        this.selectedCountry = "";
+        this.selectedCategory = "";
+        this.selectedYear = "";
+        break;
+    }
+    this.onFilterChange();
   }
   
   private addOscComponents(): void {

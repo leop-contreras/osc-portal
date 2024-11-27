@@ -8,28 +8,39 @@
         <div class="search-container">
             <span class="search-title">¿Qué OSC buscas?</span>
             <div class="search-box">
-                <div class="search-text">
+                <div class="search-text-container">
+                    <input class="search-text" #searchInput (keydown.enter)="search(searchInput.value)">
+                    <i id="trash-icon" class="bi bi-trash" (click)="searchClear()"></i>
                 </div>
-                <div class="search-icon">
+                <div class="search-icon" (click)="search(searchInput.value)">
                     <i id="search-lens-icon" class="bi bi-search"></i>
                 </div>
             </div>
             <div class="filters-container">
-                <select class="filter-box" [(ngModel)]="selectedCountry" (ngModelChange)="onFilterChange()">
-                    <option value="" selected>Estado</option>
-                    <option *ngFor="let country of countries" [value]="country.estado">{{ country.estado }}</option>
-                </select>
+                <div class="filter-box-container">
+                    <select class="filter-box" [(ngModel)]="selectedCountry" (ngModelChange)="onFilterChange()">
+                        <option value="" selected>Estado</option>
+                        <option *ngFor="let country of countries" [value]="country.estado">{{ country.estado }}</option>
+                    </select>
+                    <i id="trash-icon" class="bi bi-trash" (click)="filterClear('Country')"></i>
+                </div>
 
-                <select class="filter-box" [(ngModel)]="selectedCategory" (ngModelChange)="onFilterChange()">
-                    <option value="" selected>Categoria</option>
-                    <option *ngFor="let category of categories" [value]="category.id">{{ category.nombre }}</option>
-                </select>     
-                  
-                <select class="filter-box" [(ngModel)]="selectedYear" (ngModelChange)="onFilterChange()">
-                    <option value="" selected>Fundacion</option>
-                    <option *ngFor="let years of years" [value]="years.year">{{ years.year }}</option>
-                </select>              
-            </div>    
+                <div class="filter-box-container">
+                    <select class="filter-box" [(ngModel)]="selectedCategory" (ngModelChange)="onFilterChange()">
+                        <option value="" selected>Categoria</option>
+                        <option *ngFor="let category of categories" [value]="category.id">{{ category.nombre }}</option>
+                    </select>
+                    <i id="trash-icon" class="bi bi-trash" (click)="filterClear('Category')"></i>
+                </div>
+
+                <div class="filter-box-container">
+                    <select class="filter-box" [(ngModel)]="selectedYear" (ngModelChange)="onFilterChange()">
+                        <option value="" selected>Fundacion</option>
+                        <option *ngFor="let years of years" [value]="years.year">{{ years.year }}</option>
+                    </select>
+                    <i id="trash-icon" class="bi bi-trash" (click)="filterClear('Year')"></i>
+                </div>
+            </div>
         </div>
     </div>
     <div class="osc-big-container" #oscBigContainer></div>
