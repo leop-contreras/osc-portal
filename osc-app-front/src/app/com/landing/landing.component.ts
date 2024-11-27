@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ViewContainerRef, Injector, ApplicationRef, Renderer2, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ViewContainerRef, Injector, ApplicationRef, Renderer2, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { OscComponentComponent } from '../../com/osc-component/osc-component.component';
 import { HttpClient,HttpHeaders,HttpResponse  } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
@@ -7,36 +7,28 @@ import { FormsModule } from '@angular/forms';
 import { OscModalComponent } from '../osc-modal/osc-modal.component';
 import { SqlService } from '../../srv/sql.service';
 import { OscContactComponent } from "../osc-contact/osc-contact.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [OscComponentComponent, FormsModule, OscModalComponent, OscContactComponent],
+  imports: [OscComponentComponent, FormsModule, CommonModule, OscModalComponent, OscContactComponent],
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']  // Corrected to `styleUrls`
 })
 export class LandingComponent implements AfterViewInit {
-  selectedCountry: string = ''; 
+  selectedCountry: string = '';
+  selectedCategory: string = '';
+  selectedYear: string = '';
+
+  countries: any[] = [];
+  categories: any[] = [];
+  years: any[] = [];
+
   osclist: any = [];
   proyects: any 
   contactOpened: boolean = false;
   query: string = 'SELECT osc.id, osc.nombre AS nombre, descripcion, categorias.nombre AS categoria FROM `osc` LEFT JOIN `categorias` ON osc.id_categoria = categorias.id;';
-
-  countries = [
-    { value: 'option1', name: 'Option 1' },
-    { value: 'option2', name: 'Option 2' },
-    { value: 'option3', name: 'Option 3' }
-  ];
-  categories = [
-    { value: 'option1', name: 'Option 1' },
-    { value: 'option2', name: 'Option 2' },
-    { value: 'option3', name: 'Option 3' }
-  ];
-  years = [
-    { value: 'option1', name: 'Option 1' },
-    { value: 'option2', name: 'Option 2' },
-    { value: 'option3', name: 'Option 3' }
-  ];
 
   @ViewChild('oscBigContainer', { read: ViewContainerRef, static: true })
   oscBigContainer!: ViewContainerRef;
@@ -48,21 +40,91 @@ export class LandingComponent implements AfterViewInit {
     private injector: Injector,
     private sql:SqlService,
     private renderer: Renderer2, private el: ElementRef,
-    private http: HttpClient
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void{
     let r = this.sql.query(this.query,"select");
     this.osclist = r.length>0 ? r : [];
     console.log(this.osclist);
+
+    this.showCategorias();
+    this.showCountry();
+    this.showFundacion();
+    this.fetchFilteredOscList();
   }
 
   ngAfterViewInit(): void {
     this.addOscComponents();
     this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
   }
+
+  showCategorias(): void {
+    const query2 = 'SELECT id, nombre FROM categorias';
+    let result = this.sql.query(query2, 'select');
+    this.categories = result.length > 0 ? result : [];
+    console.log(this.categories);
+  }
+
+  showCountry(): void {
+    const query2 = 'SELECT DISTINCT estado, id FROM osc GROUP BY estado';
+    let result = this.sql.query(query2, 'select');
+    this.countries = result.length > 0 ? result : [];
+    console.log(this.countries);
+  }
+
+  showFundacion(): void {
+    const query = 'SELECT DISTINCT SUBSTRING(fundacion, 7, 4) AS year FROM osc GROUP BY year ORDER BY year DESC';
+    let result = this.sql.query(query, 'select');
+    this.years = result.length > 0 ? result : [];
+    console.log(this.years);
+  }
+
+  fetchFilteredOscList(): void {
+    let query = `
+      SELECT 
+        osc.id, osc.nombre AS nombre, osc.descripcion, categorias.nombre AS categoria
+      FROM 
+        osc
+      LEFT JOIN 
+        categorias ON osc.id_categoria = categorias.id
+      WHERE 
+    `;
+
+    const conditions: string[] = [];
+
+    if (this.selectedCategory) {
+      conditions.push(`osc.id_categoria = ${this.selectedCategory}`);
+    }
+
+    if (this.selectedCountry) {
+      conditions.push(`osc.estado = '${this.selectedCountry}'`);
+    }
+
+    if (this.selectedYear) {
+      conditions.push(`SUBSTRING(osc.fundacion, 7, 4) = '${this.selectedYear}'`);
+    }
+
+    if (conditions.length > 0) {
+      query += conditions.join(' AND ');
+    } else {
+      query += '1'; // No aplica filtros si no hay selección
+    }
+
+    let result = this.sql.query(query, 'select');
+    this.osclist = result.length > 0 ? result : [];
+    console.log(this.osclist);
+    this.addOscComponents(); 
+  }
+
+  onFilterChange(): void {
+    this.fetchFilteredOscList(); 
+  }
   
   private addOscComponents(): void {
+    const containerElement = this.oscBigContainer.element.nativeElement;
+    containerElement.innerHTML = '';
     for (let i = 0; i < this.osclist.length; i++) {
       // Dynamically create component
       const componentRef = this.oscBigContainer.createComponent(OscComponentComponent);
@@ -192,6 +254,4 @@ export class LandingComponent implements AfterViewInit {
       catchError(() => of(false))  // Return false in case of any error (like network issues)
     );
   }
-  
-  
 }

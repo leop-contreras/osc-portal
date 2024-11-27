@@ -15,19 +15,21 @@
                 </div>
             </div>
             <div class="filters-container">
-                <select class="filter-box" [(ngModel)]="selectedCountry">
-                    <option value="" selected>Pais</option>
-                    <option *ngFor="let country of countries" [value]="country.value">{{ country.name }}</option>
+                <select class="filter-box" [(ngModel)]="selectedCountry" (ngModelChange)="onFilterChange()">
+                    <option value="" selected>Estado</option>
+                    <option *ngFor="let country of countries" [value]="country.estado">{{ country.estado }}</option>
                 </select>
-                <select class="filter-box" [(ngModel)]="selectedCountry">
+
+                <select class="filter-box" [(ngModel)]="selectedCategory" (ngModelChange)="onFilterChange()">
                     <option value="" selected>Categoria</option>
-                    <option *ngFor="let category of categories" [value]="category.value">{{ category.name }}</option>
+                    <option *ngFor="let category of categories" [value]="category.id">{{ category.nombre }}</option>
                 </select>     
-                <select class="filter-box" [(ngModel)]="selectedCountry">
+                  
+                <select class="filter-box" [(ngModel)]="selectedYear" (ngModelChange)="onFilterChange()">
                     <option value="" selected>Fundacion</option>
-                    <option *ngFor="let years of year" [value]="years.value">{{ years.name }}</option>
+                    <option *ngFor="let years of years" [value]="years.year">{{ years.year }}</option>
                 </select>              
-            </div>
+            </div>    
         </div>
     </div>
     <div class="osc-big-container" #oscBigContainer></div>

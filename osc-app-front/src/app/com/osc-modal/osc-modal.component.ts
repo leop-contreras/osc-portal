@@ -1,24 +1,25 @@
 import { Component, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import { CommonModule,NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { OscContactComponent } from '../osc-contact/osc-contact.component';
 
 @Component({
   selector: 'app-osc-modal',
   standalone: true,
-  imports: [NgFor, CommonModule, OscContactComponent],
+  imports: [CommonModule, OscContactComponent],
   templateUrl: './osc-modal.component.html',
   styleUrl: './osc-modal.component.css'
 })
 export class OscModalComponent {
   isVisible = false;
 
+  imgSrc: string = '';
+  date: string = '';
+  place: string = '';
+  category: string = '';
+  parentDiv: any = '';
+  desc: string = '';
+
   @Input() name: string = 'OSC NAME';
-  @Input() imgSrc: string = '';
-  @Input() date: string = '';
-  @Input() place: string = '';
-  @Input() category: string = '';
-  @Input() parentDiv: any = '';
-  @Input() desc: string = '';
   @Input() id: string = '';
   @Input() proyects: any = [];
 
