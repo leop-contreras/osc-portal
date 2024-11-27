@@ -165,7 +165,8 @@ export class LandingComponent implements AfterViewInit {
       });
       let contactoQuery = this.sql.query('SELECT * FROM `contactos` WHERE id ='+id,"select");
       let contactoInfo = contactoQuery.length>0 ? contactoQuery : [];
-      contactComponentRef.instance.openModal(contactoInfo);
+      console.log(contactoInfo);
+      contactComponentRef.instance.openModal(contactoInfo[0]);
     }
   }
 

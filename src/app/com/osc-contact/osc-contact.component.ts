@@ -11,9 +11,9 @@ import { CommonModule } from '@angular/common';
 export class OscContactComponent {
   isVisible = true;
 
-  @Input() name: string = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
-  @Input() phone: string = 'A';
-  @Input() email: string = 'A';
+  @Input() name: string = '';
+  @Input() phone: string = '';
+  @Input() email: string = '';
   @Input() info: any = {};
 
   @Output() modalClosed: EventEmitter<void> = new EventEmitter<void>();
